@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Research — STRAIGHT</title>
+<meta name="description" content="STRAIGHT: archery form analysis from video pose estimation with LLM coaching feedback. Accepted as a poster at ACM UIST.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="in">
+    <a class="me" href="index.html">Keshav Kumar</a>
+    <ul>
+      <li><a class="s" href="index.html">Home</a></li>
+      <li><a class="s" href="about.html">About</a></li>
+      <li><a class="s" href="research.html" aria-current="page">Research</a></li>
+      <li><a class="s" href="projects.html">Projects</a></li>
+      <li><a class="s" href="archery.html">Archery</a></li>
+    </ul>
+  </div>
+  <i class="reg" id="reg"></i>
+</nav>
+
+<header class="phead" id="main">
+  <div class="in">
+    <p class="fig">FIG. 06 — RESEARCH</p>
+    <h1>STRAIGHT</h1>
+    <p>Toward consistent archery form via video pose analysis and language-model-based coaching
+      feedback. An archer's practice clip goes in; measured inconsistencies and a drill come out.</p>
+    <div class="links">
+      <a class="lnk" href="https://drive.google.com/file/d/1JpEhAUHDP4jLc2A9fsmFcag8B9oFqQEK/view?usp=sharing" rel="noopener">READ THE PAPER (PDF) &rarr;</a>
+      <span class="lnk off">ACCEPTED — POSTER, ACM UIST</span>
+    </div>
+  </div>
+</header>
+
+<figure class="photoband" style="aspect-ratio:2382/1528;max-height:70svh">
+  <img src="media/img/straight-ui.webp" width="1600" height="1026"
+       alt="The STRAIGHT interface: an archer at full draw with the draw-force line overlaid, beside a measured angle of 16.56 degrees against a 6.32 degree mean, flagged Needs attention, with coaching cues."
+       fetchpriority="high" decoding="async">
+  <figcaption><b>FIG. 06a</b> — The system's own output. Draw-force line overlaid on the frame,
+    the measured angle against the archer's mean, and the drill it prescribes. Faces are blurred
+    in the paper for participant anonymity.</figcaption>
+</figure>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2>The problem</h2><span class="wt"></span><span class="fig">FIG. 07</span></div>
+    <div class="two">
+      <div>
+        <p class="lede rv">Accurate archery depends on reproducing the same timing, alignment, and
+          follow-through shot after shot. But athletes mostly train without feedback, because a
+          coach cannot watch every attempt — and coaching hours are expensive.</p>
+        <p class="lede rv d1">The gap isn't knowledge, it's <b>observation bandwidth</b>. A coach
+          standing behind you catches maybe one shot in ten. The other nine are unmeasured, and
+          inconsistency is exactly the thing that only shows up across repetitions.</p>
+      </div>
+      <div>
+        <p class="lede rv d1">STRAIGHT closes that by evaluating each shot <b>in the context of the
+          archer's own prior attempts</b> — not against a textbook ideal. It quantifies how
+          consistently timing, alignment, and stability are reproduced, then an LLM turns those
+          numbers into coaching-style feedback with a specific drill attached.</p>
+        <p class="note rv d1">Tiannu Zhang (Boston University), <b>Keshav Kumar</b> (Queen's
+          University), Chang Xiao (Boston University). Accepted as a poster at ACM UIST.
+          Codebase to be released.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pipe-outer">
+  <div class="pipe-sticky">
+    <div>
+      <div class="head" style="margin-bottom:0"><h2>The pipeline</h2><span class="wt"></span><span class="fig">FIG. 08</span></div>
+      <ol class="stages" id="stages">
+        <li data-s="0"><b>01 · Input</b>A single practice clip</li>
+        <li data-s="1"><b>02 · Pose</b>17 keypoints per frame</li>
+        <li data-s="2"><b>03 · Segment</b>Shot split into phases</li>
+        <li data-s="3"><b>04 · Measure</b>Timing, alignment, stability</li>
+        <li data-s="4"><b>05 · Feedback</b>Scored against the archer's own history</li>
+      </ol>
+      <p class="stage-copy" id="stageCopy"></p>
+    </div>
+    <div class="pipe-view">
+      <canvas id="pipe" aria-label="The STRAIGHT pipeline running on a real archery shot, stage by stage"></canvas>
+      <div class="pipe-readout">
+        <span id="roLeft">FRAME 001 / 060</span>
+        <span id="roRight">STAGE <b>01</b> / 05</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-plate">
+  <div class="wrap">
+    <div class="head"><h2>What it prints</h2><span class="wt"></span><span class="fig">FIG. 09</span></div>
+    <p class="lede rv" style="margin-bottom:36px">Real output from the paper, on one shot. Each
+      measure is stated against that archer's rolling average, so "good" means
+      <b>consistent with yourself</b>, not close to a model form.</p>
+    <div class="readouts rv d1">
+      <div>
+        <h4>Draw-to-release time</h4>
+        <p class="big">7.75s</p>
+        <p class="base">avg 6.52s ± 0.94s</p>
+        <p class="say"><span class="flag">Late by 1.23s</span> against your average, and recurring
+          across recordings. Drill: metronome rhythm — draw, settle to the beat, release on the next.</p>
+      </div>
+      <div>
+        <h4>Draw-force angle</h4>
+        <p class="big">7.86°</p>
+        <p class="base">avg 6.13° ± 0.85°</p>
+        <p class="say">Draw-force line tilted higher than usual; pulling the elbow up adds torque at
+          release. Drill: resistance-band reverse draw until the wrist–elbow–arrow line feels straight.</p>
+      </div>
+      <div>
+        <h4>Post-release bow-arm</h4>
+        <p class="big">6.6°</p>
+        <p class="base">93.7° → 87.1°, target &lt; 5.0°</p>
+        <p class="say"><span class="flag">Bow arm collapses after release.</span> Drill: isometric
+          push toward the target at full draw, held through the release.</p>
+      </div>
+      <div>
+        <h4>Spine alignment</h4>
+        <p class="big">Good</p>
+        <p class="base">within tolerance</p>
+        <p class="say">Spine is straight. Nothing to correct — reported so the athlete knows it was
+          checked, not skipped.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head"><h2>Results</h2><span class="wt"></span><span class="fig">FIG. 10</span></div>
+    <div class="two">
+      <div>
+        <table class="metrics rv">
+          <thead><tr><th>Result</th><th>Measure</th></tr></thead>
+          <tbody>
+            <tr><td>Phase detection, low-res and dummy aids</td><td class="val"><em data-count="98" data-suffix="%">98%</em></td></tr>
+            <tr><td>Shot-phase model, within 10 frames</td><td class="val"><em data-count="87" data-suffix="%">87%</em></td></tr>
+            <tr><td>Pose features screened</td><td class="val"><span data-count="100" data-suffix="+">100+</span></td></tr>
+            <tr><td>Predictive variables retained</td><td class="val"><span data-count="15">15</span></td></tr>
+            <tr><td>Practice points analysed</td><td class="val"><span data-count="500" data-suffix="+">500+</span></td></tr>
+            <tr><td>Consistency metrics</td><td class="val"><span data-count="6">6</span></td></tr>
+          </tbody>
+        </table>
+        <p class="note rv d1">Accepted as a poster at ACM UIST. Co-authored; the segmentation
+          pipeline and feature selection were my contribution.</p>
+      </div>
+      <div>
+        <p class="lede rv d1" style="margin-top:0">The interesting constraint was <b>label cost</b>.
+          Hand-labelling phase boundaries across 733 frames per clip does not scale, so the
+          segmentation can't assume a labelled dataset exists.</p>
+        <p class="lede rv d1">The approach: pose heuristics narrow the plausible window for a
+          boundary, then binary-search VLM queries locate it — roughly <b>log₂(n) queries</b>
+          instead of classifying every frame. That's what holds 98% phase detection even on
+          low-resolution video and with dummy training aids, where a naive frame classifier
+          degrades badly.</p>
+<figure class="plate rv">
+      <img src="media/img/phases.webp" width="1400" height="788" loading="lazy" decoding="async"
+           alt="Four frames of one archery shot labelled Rest, Draw and Release, colour-coded by phase.">
+      <figcaption><b>FIG. 08a</b> — What segmentation produces: one continuous clip cut into
+        labelled phases. Every downstream metric is computed inside one of these windows, which is
+        why boundary accuracy matters more than frame-level accuracy.</figcaption>
+    </figure>
+        <p class="lede rv d2">My other piece was feature selection: screening 100+ candidate pose
+          features down to the 15 that actually carried predictive signal, then the random-forest
+          phase model built on them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <div class="colo-grid">
+      <div><h2 class="rv">Looking for SWE internships and research work in AI/ML.</h2></div>
+      <div class="contact rv d1">
+        <a href="media/Keshav-Kumar-Resume.pdf" target="_blank" rel="noopener"><span>Resume</span><span>PDF &rarr;</span></a>
+        <a href="mailto:keshav.avyukta@gmail.com"><span>Email</span><span>keshav.avyukta@gmail.com</span></a>
+        <a href="https://github.com/K3shavC0des" rel="noopener"><span>GitHub</span><span>K3shavC0des</span></a>
+        <a href="https://linkedin.com/in/k2008" rel="noopener"><span>LinkedIn</span><span>in/k2008</span></a>
+      </div>
+    </div>
+    <nav class="fnav" aria-label="Footer">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="research.html">Research</a>
+      <a href="projects.html">Projects</a><a href="archery.html">Archery</a>
+    </nav>
+    <p class="fineprint">FIG. 08 renders 60 frames of a single recurve shot from pose keypoints,
+      rigidified to constant bone length. Readouts in FIG. 09 are real output values reported in
+      the paper.</p>
+  </div>
+</footer>
+
+<script src="assets/poses.js"></script>
+<script src="assets/site.js"></script>
+</body>
+</html>

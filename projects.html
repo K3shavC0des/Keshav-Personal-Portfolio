@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Projects — Keshav Kumar</title>
+<meta name="description" content="Three projects built end to end: STRAIGHT, QStudy and SwipeHire.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav" id="nav">
+  <div class="in">
+    <a class="me" href="index.html">Keshav Kumar</a>
+    <ul>
+      <li><a class="s" href="index.html">Home</a></li>
+      <li><a class="s" href="about.html">About</a></li>
+      <li><a class="s" href="research.html">Research</a></li>
+      <li><a class="s" href="projects.html" aria-current="page">Projects</a></li>
+      <li><a class="s" href="archery.html">Archery</a></li>
+    </ul>
+  </div>
+  <i class="reg" id="reg"></i>
+</nav>
+
+<header class="phead" id="main">
+  <div class="in">
+    <p class="fig">FIG. 11 — PROJECTS</p>
+    <h1>Three things, built end to end.</h1>
+    <p>Each one shipped, broke somewhere real, and taught me something I couldn't have read. The
+      part worth reading is <em>hardest part</em> — that's where the actual engineering was.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="proj">
+      <article class="rv">
+        <div class="side"><span class="nm">STRAIGHT</span><span class="yr">2025</span></div>
+        <div>
+          <h3>Archery form analysis from video pose estimation</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Consistent form depends on reproducing timing and alignment
+              across every shot, but a coach can only watch a fraction of them. The unobserved
+              shots are exactly where inconsistency hides.</dd></div>
+            <div><dt>What I built</dt><dd>A pipeline that takes a raw practice clip, detects the
+              shot phase, estimates pose, and scores timing, alignment and stability against the
+              archer's own prior attempts. An LLM converts the measurements into coaching-style
+              feedback with a drill attached.</dd></div>
+            <div><dt>Hardest part</dt><dd>Segmenting without labels. Hand-labelling phase
+              boundaries across 733 frames per clip doesn't scale, so pose heuristics narrow the
+              window and <b>binary-search VLM queries</b> locate the boundary in about log₂(n)
+              queries. That's what holds <b>98% phase detection</b> on low-resolution footage and
+              with dummy training aids.</dd></div>
+            <div><dt>My part</dt><dd>The segmentation pipeline and the feature-selection pass that
+              cut 100+ pose features to the 15 with real predictive signal, plus the random-forest
+              phase model at 87% accuracy within 10 frames. Co-authored with two researchers at
+              Boston University.</dd></div>
+          </dl>
+          <p class="tech">Python · MMPose · scikit-learn · Random forest · Vision-language models · matplotlib</p>
+          <div class="links">
+            <a class="lnk" href="research.html">FULL WRITE-UP &rarr;</a>
+            <a class="lnk" href="https://drive.google.com/file/d/1JpEhAUHDP4jLc2A9fsmFcag8B9oFqQEK/view?usp=sharing" rel="noopener">PAPER (PDF) &rarr;</a>
+            <span class="lnk off">ACCEPTED — POSTER, ACM UIST</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="rv d1">
+        <div class="side"><span class="nm">QSTUDY</span><span class="yr">2026</span></div>
+        <div>
+          <h3>Study-group matching for university students</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>First-year students at a large university have no way to find
+              people in the same courses who actually want to study together.</dd></div>
+            <div><dt>What I built</dt><dd>A Flask backend and React frontend deployed as two
+              separate services against managed Postgres. Session-based authentication, a REST API
+              over a schema for accounts, groups and membership, and live filtering so a student
+              finds a relevant group without reading a list.</dd></div>
+            <div><dt>Hardest part</dt><dd>The failures were operational, not algorithmic. Cookies
+              worked locally and silently broke cross-site in production — the fix required
+              understanding what <b>SameSite=None</b> actually costs and why a CSRF defence becomes
+              mandatory once you set it. Separately, a schema change never reached the live
+              database, because <b>create_all() only creates tables it can't find</b>; it will
+              never alter one that already exists.</dd></div>
+          </dl>
+          <p class="tech">Python · Flask · SQLAlchemy · Postgres (Supabase) · React · Vercel · Render</p>
+          <div class="links"><span class="lnk off">REPO PRIVATE</span></div>
+        </div>
+      </article>
+
+      <article class="rv d2">
+        <div class="side"><span class="nm">SWIPEHIRE</span><span class="yr">2025</span></div>
+        <div>
+          <h3>Resume review, turned into a swipe deck</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Reviewing resumes one PDF at a time is tedious, and tedium is
+              where attention goes to die. My CS50 final project: make the decision itself feel like
+              a game — swipe, not scroll.</dd></div>
+            <div><dt>What I built</dt><dd>A swiping review interface over an extracted-text queue.
+              PyPDF2 pulls the resume text on upload, so the reviewer sees a normalised card
+              instead of a PDF viewer, and every decision persists against the session.</dd></div>
+            <div><dt>Hardest part</dt><dd>The auth layer. Parameterised queries and server-side
+              session handling rather than string-built SQL — the difference between a login form
+              and a <b>SQL injection</b> vector.</dd></div>
+          </dl>
+          <p class="tech">Python · Flask · SQLite · PyPDF2 · JavaScript</p>
+          <div class="links"><a class="lnk" href="https://github.com/K3shavC0des/SwipeHire" rel="noopener">SOURCE ON GITHUB &rarr;</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<figure class="photoband">
+  <img src="media/img/aim.webp" width="1800" height="1206" loading="lazy" decoding="async"
+       alt="Keshav Kumar raising the bow at the start of a shot, in a red Canada jersey under competition lighting.">
+  <figcaption><b>—</b> Everything below started from repetition: the same motion, measured enough
+    times that the variation becomes the interesting part.</figcaption>
+</figure>
+
+<footer>
+  <div class="in">
+    <div class="colo-grid">
+      <div><h2 class="rv">Looking for SWE internships and research work in AI/ML.</h2></div>
+      <div class="contact rv d1">
+        <a href="media/Keshav-Kumar-Resume.pdf" target="_blank" rel="noopener"><span>Resume</span><span>PDF &rarr;</span></a>
+        <a href="mailto:keshav.avyukta@gmail.com"><span>Email</span><span>keshav.avyukta@gmail.com</span></a>
+        <a href="https://github.com/K3shavC0des" rel="noopener"><span>GitHub</span><span>K3shavC0des</span></a>
+        <a href="https://linkedin.com/in/k2008" rel="noopener"><span>LinkedIn</span><span>in/k2008</span></a>
+      </div>
+    </div>
+    <nav class="fnav" aria-label="Footer">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="research.html">Research</a>
+      <a href="projects.html">Projects</a><a href="archery.html">Archery</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
