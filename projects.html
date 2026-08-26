@@ -29,7 +29,7 @@
     <p class="fig">FIG. 11 — PROJECTS</p>
     <h1>Three things, built end to end.</h1>
     <p>Each one shipped, broke somewhere real, and taught me something I couldn't have read. The
-      part worth reading is <em>hardest part</em> — that's where the actual engineering was.</p>
+      part worth reading is <em>hardest part</em>. That's where the actual engineering was.</p>
   </div>
 </header>
 
@@ -79,7 +79,7 @@
               over a schema for accounts, groups and membership, and live filtering so a student
               finds a relevant group without reading a list.</dd></div>
             <div><dt>Hardest part</dt><dd>The failures were operational, not algorithmic. Cookies
-              worked locally and silently broke cross-site in production — the fix required
+              worked locally and silently broke cross-site in production. The fix required
               understanding what <b>SameSite=None</b> actually costs and why a CSRF defence becomes
               mandatory once you set it. Separately, a schema change never reached the live
               database, because <b>create_all() only creates tables it can't find</b>; it will
@@ -97,12 +97,12 @@
           <dl>
             <div><dt>Problem</dt><dd>Reviewing resumes one PDF at a time is tedious, and tedium is
               where attention goes to die. My CS50 final project: make the decision itself feel like
-              a game — swipe, not scroll.</dd></div>
+              a game. Swipe, not scroll.</dd></div>
             <div><dt>What I built</dt><dd>A swiping review interface over an extracted-text queue.
               PyPDF2 pulls the resume text on upload, so the reviewer sees a normalised card
               instead of a PDF viewer, and every decision persists against the session.</dd></div>
             <div><dt>Hardest part</dt><dd>The auth layer. Parameterised queries and server-side
-              session handling rather than string-built SQL — the difference between a login form
+              session handling rather than string-built SQL: the difference between a login form
               and a <b>SQL injection</b> vector.</dd></div>
           </dl>
           <p class="tech">Python · Flask · SQLite · PyPDF2 · JavaScript</p>

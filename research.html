@@ -53,14 +53,14 @@
       <div>
         <p class="lede rv">Accurate archery depends on reproducing the same timing, alignment, and
           follow-through shot after shot. But athletes mostly train without feedback, because a
-          coach cannot watch every attempt — and coaching hours are expensive.</p>
+          coach cannot watch every attempt, and coaching hours are expensive.</p>
         <p class="lede rv d1">The gap isn't knowledge, it's <b>observation bandwidth</b>. A coach
           standing behind you catches maybe one shot in ten. The other nine are unmeasured, and
           inconsistency is exactly the thing that only shows up across repetitions.</p>
       </div>
       <div>
         <p class="lede rv d1">STRAIGHT closes that by evaluating each shot <b>in the context of the
-          archer's own prior attempts</b> — not against a textbook ideal. It quantifies how
+          archer's own prior attempts</b>, not against a textbook ideal. It quantifies how
           consistently timing, alignment, and stability are reproduced, then an LLM turns those
           numbers into coaching-style feedback with a specific drill attached.</p>
         <p class="note rv d1">Tiannu Zhang (Boston University), <b>Keshav Kumar</b> (Queen's
@@ -106,7 +106,7 @@
         <p class="big">7.75s</p>
         <p class="base">avg 6.52s ± 0.94s</p>
         <p class="say"><span class="flag">Late by 1.23s</span> against your average, and recurring
-          across recordings. Drill: metronome rhythm — draw, settle to the beat, release on the next.</p>
+          across recordings. Drill: metronome rhythm. Draw, settle to the beat, release on the next.</p>
       </div>
       <div>
         <h4>Draw-force angle</h4>
@@ -126,7 +126,7 @@
         <h4>Spine alignment</h4>
         <p class="big">Good</p>
         <p class="base">within tolerance</p>
-        <p class="say">Spine is straight. Nothing to correct — reported so the athlete knows it was
+        <p class="say">Spine is straight. Nothing to correct. Reported so the athlete knows it was
           checked, not skipped.</p>
       </div>
     </div>
@@ -157,7 +157,7 @@
           Hand-labelling phase boundaries across 733 frames per clip does not scale, so the
           segmentation can't assume a labelled dataset exists.</p>
         <p class="lede rv d1">The approach: pose heuristics narrow the plausible window for a
-          boundary, then binary-search VLM queries locate it — roughly <b>log₂(n) queries</b>
+          boundary, then binary-search VLM queries locate it: roughly <b>log₂(n) queries</b>
           instead of classifying every frame. That's what holds 98% phase detection even on
           low-resolution video and with dummy training aids, where a naive frame classifier
           degrades badly.</p>
