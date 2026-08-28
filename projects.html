@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Projects — Keshav Kumar</title>
-<meta name="description" content="Three projects built end to end: STRAIGHT, QStudy and SwipeHire.">
+<meta name="description" content="Four projects built end to end: STRAIGHT, QStudy, SwipeHire and Silent Sword.">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
 <header class="phead" id="main">
   <div class="in">
     <p class="fig">FIG. 11 — PROJECTS</p>
-    <h1>Three things, built end to end.</h1>
+    <h1>Four things, built end to end.</h1>
     <p>Each one shipped, broke somewhere real, and taught me something I couldn't have read. The
       part worth reading is <em>hardest part</em>. That's where the actual engineering was.</p>
   </div>
@@ -101,12 +101,38 @@
             <div><dt>What I built</dt><dd>A swiping review interface over an extracted-text queue.
               PyPDF2 pulls the resume text on upload, so the reviewer sees a normalised card
               instead of a PDF viewer, and every decision persists against the session.</dd></div>
-            <div><dt>Hardest part</dt><dd>The auth layer. Parameterised queries and server-side
-              session handling rather than string-built SQL: the difference between a login form
-              and a <b>SQL injection</b> vector.</dd></div>
+            <div><dt>Hardest part</dt><dd>Rendering the résumé itself. Instead of converting PDFs
+              to images, the swipe screen renders each page straight onto a canvas with
+              <b>pdf.js</b>: no iframe, no server-side conversion, no thumbnail files piling up on
+              disk. Frontend and backend only talk through two JSON endpoints, next résumé and
+              record decision, which is what keeps the swipe feel instant.</dd></div>
           </dl>
           <p class="tech"><span>Python</span><span>Flask</span><span>SQLite</span><span>PyPDF2</span><span>JavaScript</span></p>
           <div class="links"><a class="lnk" href="https://github.com/K3shavC0des/SwipeHire" rel="noopener">SOURCE ON GITHUB &rarr;</a></div>
+        </div>
+      </article>
+
+      <article class="rv d3">
+        <div class="side"><span class="nm">SILENT SWORD</span><span class="yr">2025</span></div>
+        <div>
+          <h3>A VR melee combat game, built in two weeks</h3>
+          <dl>
+            <div><dt>Problem</dt><dd>Our first pitch was a tower-defense game: stand on a tower,
+              shoot a bow at enemies below. It worked, but it was passive. You were never actually
+              in the fight.</dd></div>
+            <div><dt>What I built</dt><dd>With a partner, I repitched it as ground-based VR melee
+              combat: the player wields a sword against pursuing skeletons through a low-poly
+              forest and mountain level, with a difficulty slider that scales enemy damage across
+              three tiers.</dd></div>
+            <div><dt>Hardest part</dt><dd>Hit detection that felt physical. We studied
+              <b>Blade &amp; Sorcery: Nomad</b> for its combat feel, then built our own version:
+              per-frame collision checks between the weapon and each enemy, with skeletons playing
+              a death animation before despawning instead of just vanishing. Getting an enemy to
+              close distance and attack convincingly through an <b>XR Origin</b> rig, not a flat
+              camera, was the real design problem, not the swordplay.</dd></div>
+          </dl>
+          <p class="tech"><span>Unity</span><span>C#</span><span>Meta Quest / XR</span><span>Low-poly 3D</span></p>
+          <div class="links"><a class="lnk" href="https://github.com/K3shavC0des/XR-Game-NEU-Summer-Program" rel="noopener">SOURCE ON GITHUB &rarr;</a></div>
         </div>
       </article>
     </div>
