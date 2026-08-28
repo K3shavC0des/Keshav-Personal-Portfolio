@@ -50,6 +50,10 @@ a{color:inherit}
 .nav.on-ink .reg{background:var(--gold)}
 @media (max-width:820px){ .nav ul{gap:14px} .nav a.s{font-size:10px;letter-spacing:.06em} }
 @media (max-width:600px){ .nav .me{font-size:12px} .nav ul{gap:10px} }
+.nav a.s.hl{background:#a6570b;color:#fff;padding:4px 10px;border-radius:3px;border-bottom-color:transparent}
+.nav a.s.hl:hover{color:#fff;opacity:.85}
+.nav a.s.hl[aria-current=page]{border-bottom-color:var(--gold)}
+.nav.on-ink a.s.hl,.nav.on-ink a.s.hl:hover,.nav.on-ink a.s.hl[aria-current=page]{color:#fff}
 
 /* ---- page head (inner pages) ---- */
 .phead{padding:calc(54px + clamp(48px,8vh,96px)) var(--gut) clamp(32px,5vh,64px);
