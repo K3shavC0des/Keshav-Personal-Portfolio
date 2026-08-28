@@ -1,0 +1,172 @@
+\documentclass[letterpaper,10.5pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.9in}
+\addtolength{\textheight}{1.9in}
+
+\urlstyle{same}
+\raggedright
+\setlength{\tabcolsep}{0in}
+\setlist[itemize]{noitemsep, topsep=1pt, parsep=0pt, partopsep=0pt}
+
+\titleformat{\section}
+{\scshape\raggedright\large}
+{}{0em}{}
+[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{4pt}
+
+\newcommand{\resumeItem}[1]{
+  \item \small{#1}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \item
+  \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+    \textbf{#1} & #2 \\
+    \textit{\small #3} & \textit{\small #4}
+  \end{tabular*}
+}
+
+\newcommand{\resumeSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0.15in,label={}]
+}
+
+\newcommand{\resumeSubHeadingListEnd}{
+  \end{itemize}
+}
+
+\newcommand{\resumeItemListStart}{
+  \begin{itemize}[leftmargin=0.2in]
+}
+
+\newcommand{\resumeItemListEnd}{
+  \end{itemize}
+}
+
+\begin{document}
+
+%====================
+% Header
+%====================
+
+\begin{center}
+{\Huge \scshape Keshav Kumar} \\[2pt]
+Kingston, ON \quad\textbar\quad Authorized to work in Canada \\[2pt]
+\small
+Phone: +1 (571)-453-7428 \quad
+Email: \href{mailto:keshav.avyukta@gmail.com}{keshav.avyukta@gmail.com} \quad
+LinkedIn: \href{https://www.linkedin.com/in/k2008/}{linkedin.com/in/k2008} \quad
+GitHub: \href{https://github.com/K3shavC0des}{github.com/K3shavC0des}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Queen's University}{Kingston, ON}
+      {Bachelor of Computing (Honours)}{Expected May 2030}
+      \resumeItemListStart
+        \resumeItem{Arts and Science Scholarship (\$25,000 $\times$ 4 years)}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Undergraduate Researcher}{Boston University (remote)}
+      {STRAIGHT --- archery form analysis from video, with LLM coaching feedback}{Oct 2025 -- Dec 2025}
+      \resumeItemListStart
+        \resumeItem{Built the shot-segmentation pipeline: pose heuristics narrow each phase boundary, then binary-search vision-language-model queries locate it in roughly log2(n) calls instead of classifying all 733 frames per clip, holding 98\% phase-detection accuracy on low-resolution footage and with dummy training aids}
+        \resumeItem{Ran feature selection over 100+ candidate pose features down to the 15 that carried real predictive signal, across 500+ labelled practice points}
+        \resumeItem{Trained a random-forest shot-phase model to 87\% accuracy within 10 frames; the segmented metrics feed a retrieval-augmented LLM that returns coaching-style feedback with a drill attached}
+        \resumeItem{Co-authored with two Boston University researchers; work accepted as a poster at ACM UIST 2026}
+        \resumeItemListEnd
+
+    \vspace{6pt}
+
+    \resumeSubheading
+      {Private Archery Coach}{Franklin, MA}
+      {Independent \textbar\ USA Archery Level 2 Certified Instructor}{July 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{Roughly doubled one athlete's outdoor scoring, and coached a beginner to top-ranked in the tri-state region with a national bronze medal, using frame-by-frame video analysis and structured training plans}
+        \resumeItem{As Assistant JOAD Development Coach at XSPOT Archery, coordinated with the head coach on athlete progression, evaluated body mechanics, and ran a structured program for 5+ archers}
+        \resumeItem{Certified by USA Archery in safety protocols, range setup, and instruction; taught 50+ lessons}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+
+\resumeSubHeadingListStart
+\resumeSubheading
+{QStudy --- Study-Group Matching Platform}{July 2026 - August 2026}
+{Python, Flask, SQLAlchemy, Postgres (Supabase), React, JavaScript}{\href{https://q-flow-ouslyrvc4-qs-tudy.vercel.app/login}{Live demo}}
+
+\resumeItemListStart
+
+\resumeItem{Built a full-stack study-group matcher: a Flask REST API and React frontend deployed as separate services (Render, Vercel) against managed Postgres, with session-based authentication over a schema for accounts, groups, and membership}
+
+\resumeItem{Diagnosed a production-only login failure where session cookies were silently dropped cross-site, and fixed it by moving to SameSite=None with the CSRF protection that setting then requires}
+
+\resumeItem{Traced a silent schema drift to create\_all() adding only missing tables and never altering existing ones, and fixed it with an explicit migration so model changes reach the live database}
+
+\resumeItemListEnd
+
+\vspace{6pt}
+
+
+\resumeSubheading
+  {SwipeHire --- Resume-Screening Web App}{June 2025 - July 2025}
+  {CS50 final project \textbar\ Python, Flask, SQLite, PyPDF2, JavaScript}{\href{https://github.com/K3shavC0des/SwipeHire}{Source Code}}
+  \resumeItemListStart
+    \resumeItem{Built a swipe-based review interface: PyPDF2 extracts resume text on upload and renders each candidate as a normalised card instead of a PDF viewer, with every decision persisted to the session}
+    \resumeItem{Hardened the auth layer against SQL injection using parameterised queries and server-side session handling rather than string-built SQL}
+  \resumeItemListEnd
+\resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+\section{Publications}
+  \resumeSubHeadingListStart
+  \resumeSubheading
+    {STRAIGHT: AI-Powered Archery Coaching via Pose Estimation and VLMs}{ACM UIST 2026}
+    {Poster --- T. Zhang, \textbf{K. Kumar}, C. Xiao}{}
+\resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+  \begin{itemize}[leftmargin=0.15in, label={}]
+    \small
+    \item{\textbf{Languages}: Python (primary), SQL, JavaScript, Java, C, C\#, HTML, CSS}
+    \item{\textbf{ML \& Data}: scikit-learn, MMPose, random forests, feature selection, pose estimation, vision-language models, matplotlib}
+    \item{\textbf{Web \& Infra}: Flask, React, REST APIs, SQLAlchemy, Postgres, SQLite, Supabase, Render, Vercel}
+    \item {\textbf{Tools \& Certifications}: Git/GitHub; \href{https://courses.edx.org/certificates/cb0e31f1739d463aafdb3a7bc3814719}{CS50}, Microsoft Azure AI Fundamentals (AZ-900), USA Archery Level 2 Instructor}
+  \end{itemize}
+
+%-----------EXTRACURRICULARS-----------
+\section{Leadership \& Extracurriculars}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Canadian Recurve National Team Member}{Archery Canada}
+      {1 of 3 selected nationally for the 2025 World Archery Youth Championships; Team Bronze, 2024 Pan Am Youth Championships}{2021 -- Present}
+      \resumeItemListStart
+        \resumeItem{Ranked \#1 in Canada (U18 Indoor Recurve, 2024) and \#3 (U18 Outdoor, 2024 \& 2025); Bronze, 2025 Lancaster Archery Classic; Massachusetts state champion (Indoor 2025, Outdoor JOAD 2024)}
+        \resumeItem{Sustained a 25+ hour/week training and competition schedule alongside a full Computing course load}
+        \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+\end{document}
