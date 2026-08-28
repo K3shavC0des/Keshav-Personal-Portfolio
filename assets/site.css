@@ -57,7 +57,7 @@ a{color:inherit}
 .phead .in{max-width:1180px;margin:0 auto}
 .phead .fig{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--ink-2)}
 .phead h1{margin-top:12px;font-size:clamp(2.1rem,6vw,4rem);letter-spacing:-.036em;
-  line-height:1;font-weight:700;text-wrap:balance;max-width:16ch}
+  line-height:1;font-weight:700;text-wrap:balance}
 .phead p{margin-top:20px;font-size:clamp(1rem,1.5vw,1.17rem);line-height:1.55;
   color:var(--ink-2)}
 
@@ -117,7 +117,7 @@ section{padding:clamp(60px,9vh,120px) var(--gut)}
 .routes a:hover .go{transform:translateX(5px)}
 
 /* ---- about ---- */
-.about{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(30px,5vw,72px);align-items:start}
+.about{display:grid;grid-template-columns:1.6fr .4fr;gap:clamp(30px,5vw,72px);align-items:start}
 .facts{list-style:none;font-family:var(--mono);font-size:12.5px}
 .facts li{display:grid;grid-template-columns:6.4em 1fr;gap:14px;padding:11px 0;
   border-bottom:1px solid var(--rule);line-height:1.5}
@@ -241,16 +241,16 @@ section{padding:clamp(60px,9vh,120px) var(--gut)}
 /* ---- footer ---- */
 footer{background:var(--ink-field);color:var(--bone);padding:clamp(56px,8vh,96px) var(--gut) clamp(36px,5vh,56px)}
 footer .in{max-width:1180px;margin:0 auto}
-.colo-grid{display:grid;grid-template-columns:1fr auto;gap:44px;align-items:end}
+.colo-grid{display:flex;flex-direction:column;align-items:center;text-align:center;gap:28px}
 .colo-grid h2{font-size:clamp(1.3rem,2.6vw,1.95rem);line-height:1.28;
   font-weight:600;letter-spacing:-.022em}
-.contact{display:flex;flex-direction:column;gap:9px;font-family:var(--mono);font-size:13px}
+.contact{display:flex;flex-direction:column;align-items:center;gap:9px;font-family:var(--mono);font-size:13px}
 .contact a{text-decoration:none;border-bottom:1px solid var(--hair-on-ink);padding-bottom:3px;
   display:inline-flex;gap:12px;transition:border-color .25s}
 .contact a:hover{border-color:var(--gold)}
 .contact a span:first-child{color:#7d8899;min-width:5.5em}
 .fineprint{margin-top:46px;font-family:var(--mono);font-size:10.5px;line-height:1.8;color:#7d8899;max-width:74ch}
-.fnav{margin-top:26px;display:flex;flex-wrap:wrap;gap:18px;font-family:var(--mono);font-size:11px;letter-spacing:.1em}
+.fnav{margin-top:26px;display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-family:var(--mono);font-size:11px;letter-spacing:.1em}
 .fnav a{text-decoration:none;color:var(--dim-on-ink);text-transform:uppercase;transition:color .2s}
 .fnav a:hover{color:var(--bone)}
 
@@ -266,7 +266,7 @@ footer .in{max-width:1180px;margin:0 auto}
   .pipe-outer{height:auto}
   .pipe-sticky{position:static;height:auto;grid-template-columns:1fr;gap:26px;padding:var(--gut) var(--gut) 0}
   .pipe-view{height:56vh}
-  .about,.two,.target-grid,.colo-grid{grid-template-columns:1fr}
+  .about,.two,.target-grid{grid-template-columns:1fr}
   .proj article,.exp article{grid-template-columns:1fr;gap:10px}
   .head h2{white-space:normal}
   .mast-mid{max-width:none;position:relative}
@@ -325,4 +325,4 @@ figure.plate figcaption b{color:var(--gold-ink);font-weight:400}
 /* About Me heading gets extra weight */
 .phead.big h1{font-size:clamp(2.8rem,9vw,6rem);letter-spacing:-.042em;max-width:none}
 .phead.big .sub{margin-top:22px;font-size:clamp(1.25rem,2.6vw,1.9rem);line-height:1.28;
-  color:var(--ink);font-weight:600;letter-spacing:-.022em;max-width:24ch}
+  color:var(--ink);font-weight:600;letter-spacing:-.022em}
