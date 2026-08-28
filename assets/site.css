@@ -242,7 +242,7 @@ section{padding:clamp(60px,9vh,120px) var(--gut)}
 footer{background:var(--ink-field);color:var(--bone);padding:clamp(56px,8vh,96px) var(--gut) clamp(36px,5vh,56px)}
 footer .in{max-width:1180px;margin:0 auto}
 .colo-grid{display:grid;grid-template-columns:1fr auto;gap:44px;align-items:end}
-.colo-grid h2{font-size:clamp(1.3rem,2.6vw,1.95rem);line-height:1.28;max-width:22ch;
+.colo-grid h2{font-size:clamp(1.3rem,2.6vw,1.95rem);line-height:1.28;
   font-weight:600;letter-spacing:-.022em}
 .contact{display:flex;flex-direction:column;gap:9px;font-family:var(--mono);font-size:13px}
 .contact a{text-decoration:none;border-bottom:1px solid var(--hair-on-ink);padding-bottom:3px;
