@@ -121,7 +121,7 @@ section{padding:clamp(60px,9vh,120px) var(--gut)}
 .routes a:hover .go{transform:translateX(5px)}
 
 /* ---- about ---- */
-.about{display:grid;grid-template-columns:1.6fr .4fr;gap:clamp(30px,5vw,72px);align-items:start}
+.about{display:grid;grid-template-columns:1.35fr .65fr;gap:clamp(30px,5vw,72px);align-items:start}
 .facts{list-style:none;font-family:var(--mono);font-size:12.5px}
 .facts li{display:grid;grid-template-columns:6.4em 1fr;gap:14px;padding:11px 0;
   border-bottom:1px solid var(--rule);line-height:1.5}
