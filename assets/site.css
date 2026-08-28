@@ -91,9 +91,8 @@ section{padding:clamp(60px,9vh,120px) var(--gut)}
   transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
 .head.in .wt{transform:scaleX(1)}
 .head .fig{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--ink-2);flex:none}
-.lede{font-size:clamp(1rem,1.45vw,1.14rem);line-height:1.6;color:var(--ink-2);max-width:68ch}
+.lede{font-size:clamp(1rem,1.45vw,1.14rem);line-height:1.6;color:var(--ink-2)}
 .lede+.lede{margin-top:16px}
-.wide-lede .lede{max-width:none}
 .lede b{color:var(--ink);font-weight:600}
 .dark-plate{background:var(--ink-field);color:var(--bone)}
 .dark-plate .lede{color:var(--dim-on-ink)}
